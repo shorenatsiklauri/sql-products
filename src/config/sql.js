@@ -4,7 +4,7 @@ const { Pool } = pgk;
 const pool = new Pool({
   host: "dpg-civ3i4tgkuvoigbhpi30-a",
   port: "5432",
-  Database: "products_swxl",
+  database: "products_swxl",
   user: "products_swxl_user",
   password: "mriMiLigNpLtMirxvXD8352HCSNsY7dX",
 });
