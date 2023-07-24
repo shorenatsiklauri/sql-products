@@ -2,6 +2,7 @@ import Express from "express";
 import { createTable } from "./config/sql.js";
 import bodyParser from "body-parser";
 import cors from "cors";
+import pool from "./config/sql.js";
 
 const app = Express();
 
@@ -34,7 +35,7 @@ async function init() {
           "INSERT INTO  products(title,price) VALUES($1,$2)",
           [title, price]
         );
-        const row = resultQuery.row[0];
+        const row = resultQuery.rows[0];
         return res.status(201).json(row);
       } catch (error) {
         return res.status(401).json(error);
