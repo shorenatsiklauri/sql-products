@@ -31,7 +31,7 @@ async function init() {
 
       try {
         const resultQuery = await pool.query(
-          "INSERT INTO TABLE products(title,price) VALUES($1,$2)",
+          "INSERT INTO  products(title,price) VALUES($1,$2)",
           [title, price]
         );
         const row = resultQuery.row[0];
