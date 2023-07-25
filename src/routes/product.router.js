@@ -2,6 +2,7 @@ import express from "express";
 import {
   createProduct,
   getAllproducts,
+  deleteProduct,
 } from "../controllers/prodacts.controler.js";
 
 const productRouter = express.Router();
