@@ -24,3 +24,16 @@ export const createProduct = async (req, res) => {
     return res.status(401).json(error);
   }
 };
+
+export const deleteProduct = async (req, res) => {
+  const id = +req.params.id;
+
+  try {
+    await pool.query("DELETE FROM products WHERE id = $1", [id]);
+    return res.status(201).json({ message: "Product deleted" });
+  } catch (error) {
+    return res
+      .status(401)
+      .json({ error: "An error occurred while deleting the product" });
+  }
+};

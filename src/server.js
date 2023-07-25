@@ -2,7 +2,6 @@ import Express from "express";
 import { createTable } from "./config/sql.js";
 import bodyParser from "body-parser";
 import cors from "cors";
-import pool from "./config/sql.js";
 import productRouter from "./routes/product.router.js";
 
 const app = Express();
