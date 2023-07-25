@@ -7,8 +7,8 @@ import {
 
 const productRouter = express.Router();
 
-productRouter.get("/products", getAllTodos);
-productRouter.post("/products", createTodo);
-productRouter.delete("/products/:id", deleteTodo);
+productRouter.get("/todo", getAllTodos);
+productRouter.post("/todo", createTodo);
+productRouter.delete("/todo/:id", deleteTodo);
 
 export default productRouter;

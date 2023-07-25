@@ -15,7 +15,7 @@ export const createTodo = async (req, res) => {
 
   try {
     const resultQuery = await pool.query(
-      "INSERT INTO todos(text,completed) VALUES($1,$2)",
+      "INSERT INTO todos(todotext,completed) VALUES($1,$2)",
       [text, completed]
     );
     const row = resultQuery.rows[0];

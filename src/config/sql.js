@@ -12,7 +12,7 @@ const pool = new Pool({
 
 export const createTable = async () => {
   return await pool.query(
-    "CREATE TABLE IF NOT EXISTS products(id SERIAL PRIMARY KEY,title TEXT, price INT)"
+    "CREATE TABLE IF NOT EXISTS todo(id SERIAL PRIMARY KEY,todotext TEXT, completed BOOLEAN)"
   );
 };
 
