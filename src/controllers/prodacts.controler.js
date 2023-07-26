@@ -38,6 +38,17 @@ export const deleteTodo = async (req, res) => {
   }
 };
 
+export const clearALL = async (req, res) => {
+  try {
+    await pool.query("DELETE FROM todos");
+    return res.status(200).json({ message: "All todos deleted successfully" });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ error: "An error occurred while deleting all todos" });
+  }
+};
+
 export const completeTodo = async (req, res) => {
   const id = +req.params.id;
   const { completed } = req.body;
