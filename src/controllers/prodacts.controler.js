@@ -37,3 +37,21 @@ export const deleteTodo = async (req, res) => {
       .json({ error: "An error occurred while deleting the todo" });
   }
 };
+
+export const completeTodo = async (req, res) => {
+  const id = +req.params.id;
+  const { completed } = req.body;
+
+  try {
+    const resultQuery = await pool.query(
+      "UPDATE todos SET completed = $1 WHERE id = $2 RETURNING *",
+      [completed, id]
+    );
+    const row = resultQuery.rows[0];
+    return res.status(200).json(row);
+  } catch (error) {
+    return res.status(500).json({
+      error: "An error occurred while updating the completion status",
+    });
+  }
+};
